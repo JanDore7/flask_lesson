@@ -13,3 +13,7 @@ sudo docker-compose up -d - разворачиваем БД
 from sqlalchemy import create_engine, Column, String, DateTime, func, Integer  - func позволяет вызвать функцию на стороне БД
 
 Base.metadata.create_all() - для миграций, создает таблицы
+
+atexit - это стандартная библиотека Python, которая предоставляет функциональность для регистрации функций, 
+которые должны быть выполнены при завершении выполнения программы. 
+

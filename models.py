@@ -1,3 +1,4 @@
+from atexit import register
 from sqlalchemy import create_engine, Column, String, DateTime, func, Integer
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -11,7 +12,7 @@ PG_PORT = 5431
 
 PG_DSN = f'postgresql://{PG_USER}:{PG_PASSWORD}@{PG_HOST}:{PG_PORT}/{PG_DB}'
 engin = create_engine(PG_DSN)
-
+register(engin.dispose)
 Session = sessionmaker(bind=engin)
 Base = declarative_base(bind=engin)
 
